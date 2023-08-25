@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "741343528816",
+    "project_id": "road-safety-e404a",
+    "storage_bucket": "road-safety-e404a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:741343528816:android:fa84ad1d70ac3c7bb7b1b5",
+        "android_client_info": {
+          "package_name": "com.roadSafety.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "741343528816-lstfge4p033d05l4jfq142nrjoe88a9q.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0MvCIzbaBIbCZ6vZTLXiQ7lvQWbvVt84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "741343528816-lstfge4p033d05l4jfq142nrjoe88a9q.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
