@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:road_safety/res/colors.dart';
-import 'package:road_safety/view/carRepair/car_repir_list_view.dart';
+import 'package:road_safety/view/emergency_service/carRepair/car_repir_list_view.dart';
+import 'package:road_safety/view/emergency_service/hospitalView/hospital_list_view.dart';
 import 'package:road_safety/view/emergency_service/rop/rop_view.dart';
-import 'package:road_safety/view/hospitalView/hospital_list_view.dart';
 
 class EmergencyService extends StatefulWidget {
   const EmergencyService({super.key});
@@ -76,11 +76,9 @@ class _EmergencyServiceState extends State<EmergencyService> {
 
                             }
                             else if(index == 1) {
-
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => RoyalOmanPoliceView()));
-
                             }
                             else if(index == 2) {
 
@@ -91,15 +89,6 @@ class _EmergencyServiceState extends State<EmergencyService> {
                             }
                             else {
 
-                              // Navigator.push(
-                              //   context,
-                              //   PageRouteBuilder(
-                              //     pageBuilder: (c, a1, a2) => CategoryItemScreen(category: snapshot.data!.docs[index]["categoryName"].toString(),),
-                              //     transitionsBuilder: (c, anim, a2, child) =>
-                              //         FadeTransition(opacity: anim, child: child),
-                              //     transitionDuration: Duration(milliseconds: 0),
-                              //   ),
-                              // );
                             }
 
                           },
