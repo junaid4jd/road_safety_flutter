@@ -72,7 +72,7 @@ class _EmergencyServiceState extends State<EmergencyService> {
 
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => CarRepairListView()));
+                                  MaterialPageRoute(builder: (context) => HospitalListView()));
 
                             }
                             else if(index == 1) {
@@ -84,7 +84,7 @@ class _EmergencyServiceState extends State<EmergencyService> {
 
                               Navigator.push(
                                   context,
-                                  MaterialPageRoute(builder: (context) => HospitalListView()));
+                                  MaterialPageRoute(builder: (context) => CarRepairListView()));
 
                             }
                             else {

@@ -15,7 +15,7 @@ class SplashView extends StatefulWidget {
 }
 
 class _SplashViewState extends State<SplashView> {
-  final splashDelay = 1; // delay for 5 seconds
+  final splashDelay = 3; // delay for 5 seconds
 
   @override
   void initState() {
@@ -43,42 +43,33 @@ class _SplashViewState extends State<SplashView> {
     final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
-        decoration:  BoxDecoration(
-            gradient: LinearGradient(
-                colors: [
-                  AppColors.darkGreenColor,
-                  AppColors.lightGreenColor,
-                ],
-                stops: [
-                  0.0,
-                  1.0
-                ],
-                begin: Alignment.centerLeft,
-                end: Alignment.centerRight,
-                tileMode: TileMode.repeated)),
         width: size.width,
         height: size.height,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Container(
-              child: Image.asset('assets/images/logo.png', height: 100,width: 100,fit: BoxFit.scaleDown,),
-            ),
-            Center(
-                child: Padding(
-                  padding: EdgeInsets.only(top: 10),
-                  child: Text(
-                    'Road Safety',
-                    style: TextStyle(
-                        fontSize: TextStylesData.headingSmallFontSize,
-                        color: AppColors.blackColor,
-                        fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.center,
-                  ),
-                )),
-          ],
-        ),
+        decoration:  BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/splash_img.jpeg"),
+          fit: BoxFit.cover),
+        // child: Column(
+        //   mainAxisAlignment: MainAxisAlignment.center,
+        //   children: [
+        //     Container(
+        //       child: Image.asset('assets/images/logo.png', height: 100,width: 100,fit: BoxFit.scaleDown,),
+        //     ),
+        //     Center(
+        //         child: Padding(
+        //           padding: EdgeInsets.only(top: 10),
+        //           child: Text(
+        //             'Road Safety',
+        //             style: TextStyle(
+        //                 fontSize: TextStylesData.headingSmallFontSize,
+        //                 color: AppColors.blackColor,
+        //                 fontWeight: FontWeight.bold),
+        //             textAlign: TextAlign.center,
+        //           ),
+        //         )),
+        //   ],
+        // ),
       ),
-    );
+      ) );
   }
 }

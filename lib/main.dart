@@ -14,21 +14,22 @@ void main() async {
 
 
     if (Platform.isIOS) {
-
-      await Firebase.initializeApp(
-          options: FirebaseOptions(apiKey: 'AIzaSyAFFk4hXMpio9X_Gz0wVCQvk4a5QAzllXM',
-              appId: '1:97089701565:android:02972d723ec132a52119d4',
-              messagingSenderId: '97089701565',
-              storageBucket:  "agriculture-store-flutter.appspot.com",
-              projectId: 'agriculture-store-flutter'));
+      //
+      // await Firebase.initializeApp(
+      //     options: FirebaseOptions(apiKey: 'AIzaSyAFFk4hXMpio9X_Gz0wVCQvk4a5QAzllXM',
+      //         appId: '1:97089701565:android:02972d723ec132a52119d4',
+      //         messagingSenderId: '97089701565',
+      //         storageBucket:  "agriculture-store-flutter.appspot.com",
+      //         projectId: 'agriculture-store-flutter'));
     }
     else {
       await Firebase.initializeApp(
-          options: FirebaseOptions(apiKey: 'AIzaSyA0MvCIzbaBIbCZ6vZTLXiQ7lvQWbvVt84',
-            appId: '1:741343528816:android:fa84ad1d70ac3c7bb7b1b5',
-            messagingSenderId: '741343528816',
-            projectId: 'road-safety-e404a',
-            storageBucket:  "road-safety-e404a.appspot.com",
+        name: "Road-Safety",
+          options: FirebaseOptions(apiKey: 'AIzaSyCHdcxrI8vUmSZhWAeuCvV3rqdk',
+            appId: '1:823097708788:android:883b9a1ec8fd00d3310ea1',
+            messagingSenderId: '823097708788',
+            projectId: 'road-safety-app-772a',
+            storageBucket:  "road-safety-app-772a4.appspot.com",
 
 
           ));

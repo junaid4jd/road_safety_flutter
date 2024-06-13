@@ -222,7 +222,8 @@ class _FeedbackreportScreenState extends State<FeedbackreportScreen> {
             );
           }
         },
-      ) : StreamBuilder(
+      ) :
+      StreamBuilder(
         stream: FirebaseFirestore.instance.collection(widget.title).where("mechanicId", isEqualTo: _auth.currentUser!.uid).snapshots(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {

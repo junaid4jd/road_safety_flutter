@@ -454,10 +454,10 @@ class _AddIncidentReportViewState extends State<AddIncidentReportView> {
                         Utils.flushBarErrorMessage("Address is required", context, AppColors.darkRedColor, "Error", 2);
 
                       }
-                      else if(profileImage == '')
-                      {
-                        Utils.flushBarErrorMessage("Upload incident picture", context, AppColors.darkRedColor, "Error", 2);
-                      }
+                      // else if(profileImage == '')
+                      // {
+                      //   Utils.flushBarErrorMessage("Upload incident picture", context, AppColors.darkRedColor, "Error", 2);
+                      // }
 
                       else {
                         setState(() {

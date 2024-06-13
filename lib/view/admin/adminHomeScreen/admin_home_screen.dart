@@ -5,8 +5,10 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:road_safety/res/constants.dart';
 import 'package:road_safety/view/admin/adminUsersScreen/admin_users_screen.dart';
+import 'package:road_safety/view/admin/alerts/send_alert_screen.dart';
 import 'package:road_safety/view/admin/incidentReportView/admin_incident_report_view.dart';
 import 'package:road_safety/view/authentication/userType/usertype_screen.dart';
+import 'package:road_safety/view/emergency_service/emergency_service_view.dart';
 import 'package:road_safety/view/feedbackReport/view_feedback_report_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -49,6 +51,18 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       favorite: false,
     ),
     Product(
+      title: 'Emergency Service',
+      addToCart: 0,
+      sale: 'Sale',
+      isNew: '',
+      id: '',
+      quantity: '330g',
+      ruppes: 'AED3.81',
+      image: 'assets/images/emergency-call.png',
+      favorite: false,
+    ),
+
+    Product(
       title: 'Feedback',
       addToCart: 0,
       sale: 'Sale',
@@ -68,6 +82,17 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
       quantity: '330g',
       ruppes: 'AED3.81',
       image: 'assets/images/incident.png',
+      favorite: false,
+    ),
+    Product(
+      title: 'Send Alert',
+      addToCart: 0,
+      sale: 'Sale',
+      isNew: '',
+      id: '',
+      quantity: '330g',
+      ruppes: 'AED3.81',
+      image: 'assets/images/alert.png',
       favorite: false,
     ),
     Product(
@@ -235,8 +260,27 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 
                                       });
                                     }
-
                                     else if(index1 == 1) {
+                                      Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                          pageBuilder: (c, a1, a2) => EmergencyService(),
+                                          transitionsBuilder: (c, anim, a2, child) =>
+                                              FadeTransition(
+                                                  opacity: anim, child: child),
+                                          transitionDuration: Duration(
+                                              milliseconds: 100),
+                                        ),
+                                      ).then((value) {
+                                        getData();
+                                        setState(() {
+
+                                        });
+
+                                      });
+                                    }
+
+                                    else if(index1 == 2) {
                                       Navigator.push(
                                         context,
                                         PageRouteBuilder(
@@ -255,7 +299,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 
                                       });
                                     }
-                                    else if(index1 == 2) {
+                                    else if(index1 == 3) {
                                       Navigator.push(
                                         context,
                                         PageRouteBuilder(
@@ -274,7 +318,28 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
 
                                       });
                                     }
-                                    else if(index1 == 3) {
+
+                                    else if(index1 == 4) {
+                                      Navigator.push(
+                                        context,
+                                        PageRouteBuilder(
+                                          pageBuilder: (c, a1, a2) => SendAlertScreen(),
+                                          transitionsBuilder: (c, anim, a2, child) =>
+                                              FadeTransition(
+                                                  opacity: anim, child: child),
+                                          transitionDuration: Duration(
+                                              milliseconds: 100),
+                                        ),
+                                      ).then((value) {
+                                        getData();
+                                        setState(() {
+
+                                        });
+
+                                      });
+                                    }
+
+                                    else if(index1 == 5) {
                                       SharedPreferences prefs = await SharedPreferences.getInstance();
                                       try {
                                         prefs.remove('userEmail');
@@ -354,41 +419,6 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
                                           SizedBox(
                                             height: size.height * 0.01,
                                           ),
-                                          index1 == 2 || index1 == 3 || index1 == 4 ? Container() :
-                                          Center(
-                                            child: Container(
-                                              decoration: BoxDecoration(
-                                                shape: BoxShape.circle,
-                                                color: whiteColor,
-                                                boxShadow: [
-                                                  BoxShadow(
-                                                    color: primaryColor1
-                                                        .withOpacity(0.4),
-                                                    spreadRadius: 1.2,
-                                                    blurRadius: 0.8,
-                                                    offset: Offset(0,
-                                                        0), // changes position of shadow
-                                                  ),
-                                                ],
-                                              ),
-                                              child: Padding(
-                                                padding: const EdgeInsets.all(8.0),
-                                                child: Text(
-                                                  index1 == 0 ? users.toString() :
-                                                  index1 == 1 ? feedback.toString() :
-                                                  index1 == 2 ? incidents.toString() :
-
-                                                  category.toString(),
-                                                  style: TextStyle(fontSize: 15,color:
-                                                  index1 == 0 ? fourColor  :
-                                                  index1 == 1 ? threeColor  :
-                                                  index1 == 2 ? twoColor  :
-                                                  oneColor,fontWeight: FontWeight.bold,),
-                                                  textAlign: TextAlign.center,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
 
                                           Center(
                                             child: Text(
@@ -429,8 +459,6 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
   Future<bool> showExitPopup() async {
     return await
     showDialog(
-      //show confirm dialogue
-      //the return value will be from "Yes" or "No" options
       context: context,
       builder: (context) => AlertDialog(
         title: Text('Exit App'),
@@ -438,7 +466,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
         actions:[
           ElevatedButton(
             style: ElevatedButton.styleFrom(
-                primary: primaryColor,
+                backgroundColor: primaryColor,
                 textStyle: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold)),
@@ -451,7 +479,7 @@ class _AdminHomeScreenState extends State<AdminHomeScreen> {
             onPressed: () => Navigator.of(context).pop(true),
             //return true when click on "Yes"
             style: ElevatedButton.styleFrom(
-                primary: redColor,
+                backgroundColor: redColor,
                 textStyle: TextStyle(
                     fontSize: 16,
                     fontWeight: FontWeight.bold)),
